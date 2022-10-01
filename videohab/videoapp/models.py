@@ -9,7 +9,6 @@ class Users (models.Model):
 
 
 class Clips (models.Model):
-    #clips_id = models.BigAutoField()
     clips_name = models.TextField()
     clips_comment = models.TextField()
     clips_hashtag = models.TextField()
@@ -32,7 +31,7 @@ class Comments (models.Model):
 
 class CommentsLikes (models.Model):
     users = models.ForeignKey(Users, on_delete=models.CASCADE)
-    clips = models.ForeignKey(Clips, on_delete=models.CASCADE)
+    comments = models.ForeignKey(Comments, on_delete=models.CASCADE)
     comments_point = models.SmallIntegerField(default=0)  # 1 = Like, -1 = dislike
 
 
