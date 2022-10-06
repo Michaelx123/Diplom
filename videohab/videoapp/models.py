@@ -1,5 +1,9 @@
+import time
+
+import requests
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.crypto import md5
 
 
 class Users (models.Model):
@@ -13,6 +17,7 @@ class Clips (models.Model):
     clips_comment = models.TextField()
     clips_hashtag = models.TextField()
     clips_date_create = models.DateTimeField(auto_now_add=True)
+    clips_file = models.FileField(upload_to='clips/%Y%m%d_%H%M', null=True, blank=True)
 
 
 class ClipsLikes (models.Model):
