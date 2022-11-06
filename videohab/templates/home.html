@@ -1,0 +1,9 @@
+{% extends 'default.html' %}
+
+{% block content %}
+<h1>Поиск клипов:</h1>
+
+<form action="{% url 'search_results' %}" method="get">
+  <input name="q" type="text" placeholder="Search..." title="Нажмите Enter для поиска">
+</form>
+{% endblock content %}
