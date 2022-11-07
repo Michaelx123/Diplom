@@ -16,7 +16,7 @@ class SearchResultsView(ListView):
     def get_queryset(self):
         query = self.request.GET.get('q')
         object_list = Clips.objects.filter(
-            Q(clips_name__icontains=query) | Q(clips_comment__icontains=query) | Q(clips_hashtag__icontains=query)
+            Q(clips_name__icontains=query) | Q(clips_comment__icontains=query)
         )
         return object_list
 
