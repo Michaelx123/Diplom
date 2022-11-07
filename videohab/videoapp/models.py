@@ -15,6 +15,7 @@ class Clips (models.Model):
     clips_comment = models.TextField()
     clips_date_create = models.DateTimeField(auto_now_add=True)
     clips_file = models.FileField(upload_to='clips/%Y%m%d_%H%M', null=True, blank=True)
+    users = models.ForeignKey(Users, on_delete=models.CASCADE)
 
 
 class Hashtags (models.Model):
@@ -64,7 +65,7 @@ class CommentsDislikes (models.Model):
 
 class Subscribes (models.Model):
     user_owner_subscribe = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='user_owner_subscribe')  #Пользователь, владелец подписки
-    user_for_subscribe = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='user_for_subscribe')  #Авторы клипов, на которые подписан пользователь выше
+    user_for_subscribe = models.ForeignKey(Users, on_delete=models.CASCADE, related_name='user_for_subscribe')  #Авторы клипов(канал), на которые подписан пользователь выше
     subscribes_date = models.DateTimeField(auto_now_add=True)
 
 
